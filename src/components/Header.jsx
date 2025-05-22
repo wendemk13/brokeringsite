@@ -22,13 +22,13 @@ function Header() {
           return;
         }
 
-        const response = await axios.get(`http://localhost:5000/api/auth/getUser/${storedUser.id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/getUser/${storedUser.id}`);
         const userProfile = response.data.user[0];
         setUser(userProfile);
 
         if (userProfile.profile_image) {
           // ✅ Construct image URL correctly
-          const imageUrl = `http://localhost:5000/uploads/profile/${userProfile.profile_image}`;
+          const imageUrl = `${process.env.REACT_APP_API_URL}/uploads/profile/${userProfile.profile_image}`;
           setProfileImage(imageUrl);
         }
       } catch (err) {

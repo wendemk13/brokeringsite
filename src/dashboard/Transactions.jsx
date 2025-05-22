@@ -10,7 +10,7 @@ const [transactions, setTransactions] = useState([]);
      useEffect(() => {
   const fetchPendingListings = async () => {
     try {
-      const response = await axios.get('http://localhost:5000/api/payment/alltransactions');
+      const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/payment/alltransactions`);
             setTransactions(response.data.transactions.slice(0,7));
       setLoading(false);
       console.log(response.data.transactions)

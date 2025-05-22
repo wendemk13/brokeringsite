@@ -16,7 +16,7 @@ function PropertyCard({
   status,
   cover_image,
   ForSellRent,
-  imageUrl  // This should be passed from parent as `http://localhost:5000/uploads${cover_image}`
+  imageUrl  // This should be passed from parent as `${process.env.REACT_APP_API_URL}/uploads${cover_image}`
 }) {
   return (
     <div className="property-card">

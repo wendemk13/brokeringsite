@@ -23,7 +23,7 @@ function Cars() {
 
     const fetchCars = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/usercars?userId=${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/usercars?userId=${userId}`);
         setCars(response.data);
       } catch (error) {
         console.error('Error fetching cars:', error);
@@ -54,7 +54,7 @@ function Cars() {
             >
               {car.cover_image && (
                 <img
-                  src={`http://localhost:5000/uploads${car.cover_image}`}
+                  src={`${process.env.REACT_APP_API_URL}/uploads${car.cover_image}`}
                   className="listing-img"
                   alt={car.title}
                 />

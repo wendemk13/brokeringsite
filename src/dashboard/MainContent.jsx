@@ -27,7 +27,7 @@
 //   useEffect(() => {
 //   const fetchPendingListings = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/approval/getPendingListings');
+//       const response = await axios.get('${process.env.REACT_APP_API_URL}/api/approval/getPendingListings');
       
 //        totalPendings=response.data.pendingCars.length+response.data.pendingHouses.length;
 // console.log("totalPendings",totalPendings);
@@ -38,7 +38,7 @@
 //   };
 //   const fetchListing = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/totallistings');
+//       const response = await axios.get('${process.env.REACT_APP_API_URL}/api/totallistings');
       
 //        totalListing=response.data.listings.length
 //       console.log(response.data.listings.length)
@@ -51,7 +51,7 @@
 
 //   const fetchUser = async () => {
 //     try {
-//       const response = await axios.get('http://localhost:5000/api/auth/getAllUsers');
+//       const response = await axios.get('${process.env.REACT_APP_API_URL}/api/auth/getAllUsers');
       
 //        totalUsers=response.data.users.length
 //       console.log(response.data.users.length)
@@ -64,7 +64,7 @@
 // const fetchTransactions = async () => {
 //     try {
 //       setIsLoading(true);
-//       const response = await axios.get('http://localhost:5000/api/payment/AllTransactions');
+//       const response = await axios.get('${process.env.REACT_APP_API_URL}/api/payment/AllTransactions');
       
 //       // Calculate total amount by summing all transaction amounts
 //       const totalAmount = response.data.transactions.reduce(
@@ -431,7 +431,7 @@ function MainContent() {
   useEffect(() => {
     const fetchPendingListings = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/approval/getPendingListings');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/approval/getPendingListings`);
         const totalPendings = response.data.pendingCars.length + response.data.pendingHouses.length;
         settotalPendings(totalPendings);
       } catch (err) {
@@ -441,7 +441,7 @@ function MainContent() {
     
     const fetchListing = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/totallistings');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/totallistings`);
         const totalListing = response.data.listings.length;
         settotalListing(totalListing);
       } catch (err) {
@@ -451,7 +451,7 @@ function MainContent() {
 
     const fetchUser = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/auth/getAllUsers');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/getAllUsers`);
         const totalUsers = response.data.users.length;
         settotalUsers(totalUsers);
       } catch (err) {
@@ -462,7 +462,7 @@ function MainContent() {
     const fetchTransactions = async () => {
       try {
         setIsLoading(true);
-        const response = await axios.get('http://localhost:5000/api/payment/AllTransactions');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/payment/AllTransactions`);
         const totalAmount = response.data.transactions.reduce(
           (sum, transaction) => sum + Number(transaction.amount),
           0

@@ -17,7 +17,7 @@ const CarDetail = () => {
 
     const fetchCarDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/car/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/car/${id}`);
         setCar(response.data.car);
       } catch (err) {
         console.error('Error fetching car details:', err);
@@ -63,7 +63,7 @@ const CarDetail = () => {
         <div className="car-gallery">
           <div className="main-image">
             <img 
-              src={`http://localhost:5000/uploads${car.cover_image}`} 
+              src={`${process.env.REACT_APP_API_URL}/uploads${car.cover_image}`} 
               alt={car.title} 
             />
           </div>

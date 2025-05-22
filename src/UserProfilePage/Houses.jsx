@@ -21,7 +21,7 @@
 
 //     const fetchHouses = async () => {
 //       try {
-//         const response = await axios.get(`http://localhost:5000/api/userhouses?userId=${userId}`);
+//         const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/userhouses?userId=${userId}`);
 //         setHouses(response.data);
 //       } catch (error) {
 //         console.error('Error fetching houses:', error);
@@ -44,7 +44,7 @@
 //             <div className="house-card" key={house.id || house._id}>
 //               {/* <img src={house.image_url || house.cover_image} alt={house.title} className="house-image" /> */}
 //               <img
-//   src={`http://localhost:5000/uploads/${house.cover_image}`}
+//   src={`${process.env.REACT_APP_API_URL}/uploads/${house.cover_image}`}
 //   className="listing-img"
 //   alt={house.title}
 // />
@@ -91,7 +91,7 @@ function Houses() {
 
     const fetchHouses = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/userhouses?userId=${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/userhouses?userId=${userId}`);
         setHouses(response.data);
       } catch (error) {
         console.error('Error fetching houses:', error);
@@ -121,7 +121,7 @@ function Houses() {
               onClick={() => handleHouseClick(house.id)}
             >
               <img
-                src={`http://localhost:5000/uploads${house.cover_image}`}
+                src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}`}
                 className="listing-img"
                 alt={house.title}
               />

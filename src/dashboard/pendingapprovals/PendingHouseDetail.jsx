@@ -12,7 +12,7 @@ function PendingHouseDetail() {
 
   const handleApprove = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/approval/approveHouse/${house.id}`);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/approval/approveHouse/${house.id}`);
       navigate(-1); // Go back to previous page after approval
     } catch (err) {
       console.error('Error approving house:', err);
@@ -22,7 +22,7 @@ function PendingHouseDetail() {
 
   const handleReject = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/approval/house/${house.id}/reject`);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/approval/house/${house.id}/reject`);
       navigate(-1); // Go back to previous page after rejection
     } catch (err) {
       console.error('Error rejecting house:', err);
@@ -60,7 +60,7 @@ function PendingHouseDetail() {
 
       <div className="house-image-container">
         <img 
-          src={`http://localhost:5000/uploads${house.cover_image}` || '/placeholder-house.jpg'} 
+          src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}` || '/placeholder-house.jpg'} 
           alt={house.title} 
           className="house-main-image"
           onError={(e) => {

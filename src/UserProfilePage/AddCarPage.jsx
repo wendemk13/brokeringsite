@@ -88,7 +88,7 @@ const AddCar = () => {
     //         // Append the image file
     //         formData.append('cover_image', imageFile);
             
-    //         const response = await axios.post('http://localhost:5000/api/cars', formData, {
+    //         const response = await axios.post('${process.env.REACT_APP_API_URL}/api/cars', formData, {
     //             headers: {
     //                 'Content-Type': 'multipart/form-data',
     //                 'Authorization': `Bearer ${authToken}`
@@ -127,7 +127,7 @@ formData.append('price', parseFloat(car.price).toFixed(2));
             // Append the image file
             formData.append('cover_image', imageFile);
             
-            const response = await axios.post('http://localhost:5000/api/car', formData, {
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/api/car`, formData, {
                 headers: {
                     'Content-Type': 'multipart/form-data',
                     'Authorization': `Bearer ${authToken}`

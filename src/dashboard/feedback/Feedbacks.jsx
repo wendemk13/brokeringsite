@@ -13,7 +13,7 @@ function Feedbacks() {
   // useEffect(() => {
   //   const fetchFeedbacks = async () => {
   //     try {
-  //       const response = await axios.get("http://localhost:5000/api/feedback/getfeedbacks");
+  //       const response = await axios.get("${process.env.REACT_APP_API_URL}/api/feedback/getfeedbacks");
   //       setFeedbacks(response.data.data); // Access the data property from response
   //       setLoading(false);
   //     } catch (err) {
@@ -30,7 +30,7 @@ function Feedbacks() {
   useEffect(() => {
     const fetchFeedbacks = async () => {
       try {
-        const response = await axios.get("http://localhost:5000/api/feedback/getfeedbacks");
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/feedback/getfeedbacks`);
   
         // Sort by newest first
         const sortedFeedbacks = response.data.data.sort(

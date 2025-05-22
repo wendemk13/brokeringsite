@@ -28,7 +28,7 @@ const ManageHouses = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/managehouses/${id}/approve`);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managehouses/${id}/approve`);
       message.success('House approved successfully');
       loadData();
     } catch (err) {
@@ -38,7 +38,7 @@ const ManageHouses = () => {
   
   const handleReject = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/managehouses/${id}/reject`);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managehouses/${id}/reject`);
       message.success('House rejected successfully');
       loadData();
     } catch (err) {
@@ -48,7 +48,7 @@ const ManageHouses = () => {
 
   const fetchHouses = async (page = 1, pageSize = 10, search = '', approvalStatus = '') => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/managehouses', {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/managehouses`, {
         params: {
           page,
           limit: pageSize,
@@ -70,7 +70,7 @@ const ManageHouses = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/managehouses/stats');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/managehouses/stats`);
       setStats(res.data);
     } catch (err) {
       message.error('Failed to fetch statistics');
@@ -99,7 +99,7 @@ const ManageHouses = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/managehouses/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/managehouses/${id}`);
       message.success('House deleted');
       loadData();
     } catch (err) {
@@ -109,7 +109,7 @@ const ManageHouses = () => {
 
   const handleApprovalStatusChange = async (id, newApprovalStatus) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/managehouses/${id}/approval_status`, { approval_status: newApprovalStatus });
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managehouses/${id}/approval_status`, { approval_status: newApprovalStatus });
       message.success(`Approval status updated to ${newApprovalStatus}`);
       loadData();
     } catch (err) {

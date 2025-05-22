@@ -41,7 +41,7 @@
 //     }
 
 //     try {
-//       await axios.post('http://localhost:5000/api/contact', payload);
+//       await axios.post('${process.env.REACT_APP_API_URL}/api/contact', payload);
 //       setStatus({ type: 'success', text: 'Message sent to the owner!' });
 //       setMessage('');
 //       setSenderName('');
@@ -147,7 +147,7 @@ function ContactOwner({ listingId, contactType }) {
     }
 
     try {
-      await axios.post('http://localhost:5000/api/contact', payload);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/contact`, payload);
       setStatus({ type: 'success', text: 'Message sent to the owner!' });
       setMessage('');
     } catch (error) {

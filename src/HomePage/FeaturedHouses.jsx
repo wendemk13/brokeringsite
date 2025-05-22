@@ -11,7 +11,7 @@ function FeaturedHouses() {
   useEffect(() => {
     const fetchHouses = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/house');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/house`);
         if (response.data.success && response.data.data) {
           const firstThree = response.data.data.slice(0, 3);
           setProperties(firstThree);
@@ -48,7 +48,7 @@ function FeaturedHouses() {
             <div className="property-card" key={property.id}>
               <div className="property-image-container">
                 <img
-                  src={`http://localhost:5000/uploads${property.cover_image}`}
+                  src={`${process.env.REACT_APP_API_URL}/uploads${property.cover_image}`}
                   alt={property.title}
                   className="property-img"
                   onError={(e) => {

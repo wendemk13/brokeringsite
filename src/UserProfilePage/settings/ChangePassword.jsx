@@ -24,7 +24,7 @@ const ChangePassword = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/auth/updatepassword/${userId}`,
+        `${process.env.REACT_APP_API_URL}/api/auth/updatepassword/${userId}`,
         { currentPassword, newPassword },
         { headers: { 'Content-Type': 'application/json' } }
       );

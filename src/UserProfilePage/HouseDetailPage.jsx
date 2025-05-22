@@ -17,7 +17,7 @@ const HouseDetailPage = () => {
   useEffect(() => {
     const fetchHouseDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/house/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/house/${id}`);
         setHouse(response.data.data);
       } catch (err) {
         console.error('Error fetching house details:', err);
@@ -62,7 +62,7 @@ const HouseDetailPage = () => {
       <div className="house-gallery">
         <div className="main-image">
           <img 
-            src={`http://localhost:5000/uploads${house.cover_image}`} 
+            src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}`} 
             alt={house.title} 
           />
         </div>

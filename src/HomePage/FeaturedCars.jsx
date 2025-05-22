@@ -11,7 +11,7 @@
 //   useEffect(() => {
 //     const fetchCars = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5000/api/car');
+//         const response = await axios.get('${process.env.REACT_APP_API_URL}/api/car');
 //         if (response.data && response.data.cars) {
 //           const firstThree = response.data.cars.slice(0, 3);
 //           setCars(firstThree);
@@ -46,7 +46,7 @@
 //             <div className="car-card" key={car.id}>
 //               <div className="car-image-container">
 //                 <img
-//                   src={`http://localhost:5000/uploads${car.image_url}`}
+//                   src={`${process.env.REACT_APP_API_URL}/uploads${car.image_url}`}
 //                   alt={car.model}
 //                   className="car-img"
 //                   onError={(e) => {
@@ -107,7 +107,7 @@ function FeaturedCars() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/car');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/car`);
         if (response.data.cars) {
           const firstThree = response.data.cars.slice(0, 3);
           setCars(firstThree);
@@ -142,7 +142,7 @@ function FeaturedCars() {
             <div className="car-card" key={car.id}>
               <div className="car-image-container">
                 <img
-                  src={car.cover_image ? `http://localhost:5000/uploads${car.cover_image}` : 'https://via.placeholder.com/300x200?text=No+Image'}
+                  src={car.cover_image ? `${process.env.REACT_APP_API_URL}/uploads${car.cover_image}` : 'https://via.placeholder.com/300x200?text=No+Image'}
                   alt={`${car.make} ${car.model}`}
                   className="car-img"
                   onError={(e) => {

@@ -27,7 +27,7 @@
 
 //   const fetchCars = async (page = 1, pageSize = 10, search = '', approvalStatus = '') => {
 //     try {
-//       const res = await axios.get('http://localhost:5000/api/admin/managecars', {
+//       const res = await axios.get('${process.env.REACT_APP_API_URL}/api/admin/managecars', {
 //         params: {
 //           page,
 //           limit: pageSize,
@@ -49,7 +49,7 @@
 
 //   const fetchStats = async () => {
 //     try {
-//       const res = await axios.get('http://localhost:5000/api/admin/managecars/stats');
+//       const res = await axios.get('${process.env.REACT_APP_API_URL}/api/admin/managecars/stats');
 //       setStats(res.data);
 //     } catch (err) {
 //       message.error('Failed to fetch statistics');
@@ -71,7 +71,7 @@
 
 //   const handleApprove = async (id) => {
 //     try {
-//       await axios.patch(`http://localhost:5000/api/admin/managecars/${id}/approve`);
+//       await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}/approve`);
 //       message.success('Car approved successfully');
 //       loadData();
 //     } catch (err) {
@@ -81,7 +81,7 @@
 
 //   const handleReject = async (id) => {
 //     try {
-//       await axios.patch(`http://localhost:5000/api/admin/managecars/${id}/reject`);
+//       await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}/reject`);
 //       message.success('Car rejected successfully');
 //       loadData();
 //     } catch (err) {
@@ -91,7 +91,7 @@
 
 //   const handleDelete = async (id) => {
 //     try {
-//       await axios.delete(`http://localhost:5000/api/admin/managecars/${id}`);
+//       await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}`);
 //       message.success('Car deleted');
 //       loadData();
 //     } catch (err) {
@@ -270,7 +270,7 @@ const ManageCars = () => {
 
   const fetchCars = async (page = 1, pageSize = 10, search = '', approvalStatus = '') => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/managecars', {
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/managecars`, {
         params: { page, limit: pageSize, search, approval_status: approvalStatus }
       });
       setCars(res.data.data);
@@ -287,7 +287,7 @@ const ManageCars = () => {
 
   const fetchStats = async () => {
     try {
-      const res = await axios.get('http://localhost:5000/api/admin/managecars/stats');
+      const res = await axios.get(`${process.env.REACT_APP_API_URL}/api/admin/managecars/stats`);
       setStats(res.data);
     } catch {
       message.error('Failed to fetch statistics');
@@ -309,7 +309,7 @@ const ManageCars = () => {
 
   const handleApprove = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/managecars/${id}/approve`);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}/approve`);
       message.success('Car approved successfully');
       loadData();
     } catch {
@@ -319,7 +319,7 @@ const ManageCars = () => {
 
   const handleReject = async (id) => {
     try {
-      await axios.patch(`http://localhost:5000/api/admin/managecars/${id}/reject`);
+      await axios.patch(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}/reject`);
       message.success('Car rejected successfully');
       loadData();
     } catch {
@@ -329,7 +329,7 @@ const ManageCars = () => {
 
   const handleDelete = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/api/admin/managecars/${id}`);
+      await axios.delete(`${process.env.REACT_APP_API_URL}/api/admin/managecars/${id}`);
       message.success('Car deleted');
       loadData();
     } catch {

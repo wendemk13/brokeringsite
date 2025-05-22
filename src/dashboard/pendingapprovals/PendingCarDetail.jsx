@@ -12,7 +12,7 @@ function PendingCarDetail() {
 
   const handleApprove = async () => {
     try {
-      await axios.post(`http://localhost:5000/api/approval/approveCar/${car.id}`);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/approval/approveCar/${car.id}`);
       navigate(-1); // Go back to previous page after approval
     } catch (err) {
       console.error('Error approving car:', err);
@@ -22,7 +22,7 @@ function PendingCarDetail() {
 
   const handleReject = async () => {
     try {
-      await axios.put(`http://localhost:5000/api/approval/car/${car.id}/reject`);
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/approval/car/${car.id}/reject`);
       navigate(-1); // Go back to previous page after rejection
     } catch (err) {
       console.error('Error rejecting car:', err);
@@ -60,7 +60,7 @@ function PendingCarDetail() {
 
       <div className="car-image-container">
         <img 
-          src={`http://localhost:5000/uploads${car.cover_image}` || '/placeholder-car.jpg'} 
+          src={`${process.env.REACT_APP_API_URL}/uploads${car.cover_image}` || '/placeholder-car.jpg'} 
           alt={`${car.year} ${car.make} ${car.model}`} 
           className="car-main-image"
           onError={(e) => {

@@ -34,7 +34,7 @@ const EditCarPage = () => {
   useEffect(() => {
     const fetchCarDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/car/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/car/${id}`);
         const data = response.data.car;
         setCar({
           title: data.title || '',
@@ -53,7 +53,7 @@ const EditCarPage = () => {
         });
 
         if (data.cover_image) {
-          setCoverImagePreview(`http://localhost:5000/uploads/${data.cover_image}`);
+          setCoverImagePreview(`${process.env.REACT_APP_API_URL}/uploads/${data.cover_image}`);
         }
       } catch (err) {
         console.error('Error fetching car details:', err);
@@ -122,7 +122,7 @@ const EditCarPage = () => {
         }
       }
 
-      await axios.put(`http://localhost:5000/api/car/${id}`, formData, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/car/${id}`, formData, {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
 
@@ -260,7 +260,7 @@ const EditCarPage = () => {
               typeof car.cover_image === 'string' && (
                 <div className="image-preview">
                   <img
-                    src={`http://localhost:5000/uploads/${car.cover_image}`}
+                    src={`${process.env.REACT_APP_API_URL}/uploads/${car.cover_image}`}
                     alt="Main car"
                   />
                 </div>

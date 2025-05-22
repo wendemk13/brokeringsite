@@ -26,10 +26,10 @@ const UserProfileUpdate = () => {
       try {
         const userId = JSON.parse(localStorage.getItem('user')).id;
         setUserId(userId);
-        const response = await axios.get(`http://localhost:5000/api/auth/getUser/${userId}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/auth/getUser/${userId}`);
         setUser(response.data.user[0]);
         if (response.data.user[0].profile_image) {
-          setPreviewImage(`http://localhost:5000/uploads/profile/${response.data.user[0].profile_image}`);
+          setPreviewImage(`${process.env.REACT_APP_API_URL}/uploads/profile/${response.data.user[0].profile_image}`);
         }
       } catch (err) {
         setError('Failed to fetch user profile');
@@ -78,7 +78,7 @@ const UserProfileUpdate = () => {
 
     try {
       const response = await axios.put(
-        `http://localhost:5000/api/auth/update/${userId}`,
+        `${process.env.REACT_APP_API_URL}/api/auth/update/${userId}`,
         formData,
         {
           headers: {

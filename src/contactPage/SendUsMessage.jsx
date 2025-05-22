@@ -21,7 +21,7 @@ function SendUsMessage() {
       const user = JSON.parse(localStorage.getItem('user'));
       const user_id = user?.id || null;
 
-      await axios.post('http://localhost:5000/api/feedback/sendfeedback', {
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/feedback/sendfeedback`, {
         ...formData,
         user_id
       });

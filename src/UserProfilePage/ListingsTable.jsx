@@ -18,7 +18,7 @@ function ListingsTable() {
                     return;
                 }
                 const id = user.id; // Get the userId from the parsed object
-                const response = await axios.get(`http://localhost:5000/api/my-listings?userId=${id}`);
+                const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/my-listings?userId=${id}`);
                 setListings(response.data);
                 console.log(response.data);
             } catch (error) {
@@ -58,9 +58,9 @@ const handleDeleteClick = async (id, propertyType) => {
   try {
     let url = '';
     if (propertyType === 'House') {
-      url = `http://localhost:5000/api/house/${id}`;
+      url = `${process.env.REACT_APP_API_URL}/api/house/${id}`;
     } else if (propertyType === 'car') {
-        url=`http://localhost:5000/api/car/${id}`;
+        url=`${process.env.REACT_APP_API_URL}/api/car/${id}`;
     } else {
       console.error('Unknown property type');
       return;
@@ -113,7 +113,7 @@ const [user_id,setuser_id]=useState();
                                         <tr key={listing._id || listing.id}>
                                             {/* <td><img src={listing.image_url} className="listing-img" alt={listing.title} /></td> */}
                                             <td><img
-  src={`http://localhost:5000/uploads/${listing.cover_image}`}
+  src={`${process.env.REACT_APP_API_URL}/uploads/${listing.cover_image}`}
   className="listing-img"
   alt={listing.title}
 />

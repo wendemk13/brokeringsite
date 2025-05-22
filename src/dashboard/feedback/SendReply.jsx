@@ -26,7 +26,7 @@
 
 //     try {
 //       const response = await axios.post(
-//         `http://localhost:5000/api/replies/sendreply/${feedbackid}/${adminId}`,
+//         `${process.env.REACT_APP_API_URL}/api/replies/sendreply/${feedbackid}/${adminId}`,
 //         { message: Message }
 //       );
 //       if (response.data.reply) {
@@ -83,7 +83,7 @@ function SendReply() {
     e.preventDefault();
     try {
       await axios.post(
-        `http://localhost:5000/api/replies/sendreply/${feedbackid}/${adminId}`,
+        `${process.env.REACT_APP_API_URL}/api/replies/sendreply/${feedbackid}/${adminId}`,
         { message: replyMessage }
       );
       alert('Reply sent!');

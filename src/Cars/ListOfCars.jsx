@@ -13,7 +13,7 @@ function ListOfCars() {
   useEffect(() => {
     const fetchCars = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/car');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/car`);
         if (response.data.cars) {
           setCars(response.data.cars);
         } else {
@@ -57,7 +57,7 @@ function ListOfCars() {
             transmission={car.transmission}
             color={car.color}
             status={car.status}
-            imageUrl={car.cover_image ? `http://localhost:5000/uploads${car.cover_image}` : 'https://via.placeholder.com/300x200?text=No+Image'}
+            imageUrl={car.cover_image ? `${process.env.REACT_APP_API_URL}/uploads${car.cover_image}` : 'https://via.placeholder.com/300x200?text=No+Image'}
             ForSellRent={car.ForSellRent}
             approvalStatus={car.approval_status}
           />

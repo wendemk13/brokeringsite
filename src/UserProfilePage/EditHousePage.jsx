@@ -33,7 +33,7 @@ const EditHousePage = () => {
   useEffect(() => {
     const fetchHouseDetails = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/house/${id}`);
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/house/${id}`);
         const data = response.data.data;
 
         setHouse({
@@ -55,7 +55,7 @@ const EditHousePage = () => {
         });
 
         if (data.cover_image) {
-          setCoverImagePreview(`http://localhost:5000/uploads${data.cover_image}`);
+          setCoverImagePreview(`${process.env.REACT_APP_API_URL}/uploads${data.cover_image}`);
         }
       } catch (err) {
         console.error('Error fetching house details:', err);
@@ -126,7 +126,7 @@ const EditHousePage = () => {
         formData.append('cover_image', house.cover_image);
       }
 
-      await axios.put(`http://localhost:5000/api/house/${id}`, formData, {
+      await axios.put(`${process.env.REACT_APP_API_URL}/api/house/${id}`, formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -321,7 +321,7 @@ const EditHousePage = () => {
               house.cover_image && (
                 <div className="image-preview">
                   <img
-                    src={`http://localhost:5000/uploads${house.cover_image}`}
+                    src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}`}
                     alt="Current Cover"
                   />
                 </div>

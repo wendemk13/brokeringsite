@@ -27,7 +27,7 @@ const PendingApprovals = () => {
   useEffect(() => {
     const fetchPendingListings = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/approval/getPendingListings');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/approval/getPendingListings`);
         setPendingListings({
           pendingHouses: response.data.pendingHouses.slice(0, 3),
           pendingCars: response.data.pendingCars.slice(0, 3)
@@ -44,7 +44,7 @@ const PendingApprovals = () => {
 
   const handleApprove = async (id, type) => {
     try {
-      await axios.post(`http://localhost:5000/api/approval/approve${type}/${id}`);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/approval/approve${type}/${id}`);
       setPendingListings(prev => ({
         pendingCars: type === 'Car' ? prev.pendingCars.filter(item => item.id !== id) : prev.pendingCars,
         pendingHouses: type === 'House' ? prev.pendingHouses.filter(item => item.id !== id) : prev.pendingHouses
@@ -56,7 +56,7 @@ const PendingApprovals = () => {
 
   const handleReject = async (id, type) => {
     try {
-      const endpoint = `http://localhost:5000/api/approval/${type.toLowerCase()}/${id}/reject`;
+      const endpoint = `${process.env.REACT_APP_API_URL}/api/approval/${type.toLowerCase()}/${id}/reject`;
       console.log('Making rejection request to:', endpoint);
       
       const response = await axios.put(endpoint);
@@ -113,7 +113,7 @@ const PendingApprovals = () => {
               >
                 <div className="admin-approval-image-container">
                   <img 
-                    src={`http://localhost:5000/uploads${house.cover_image}` || '/placeholder-house.jpg'} 
+                    src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}` || '/placeholder-house.jpg'} 
                     alt="House" 
                     className="admin-approval-image" 
                   />
@@ -161,7 +161,7 @@ const PendingApprovals = () => {
               >
                 <div className="admin-approval-image-container">
                   <img 
-                    src={`http://localhost:5000/uploads${car.cover_image}` || '/placeholder-car.jpg'} 
+                    src={`${process.env.REACT_APP_API_URL}/uploads${car.cover_image}` || '/placeholder-car.jpg'} 
                     alt="Car" 
                     className="admin-approval-image" 
                   />

@@ -15,7 +15,7 @@ const ApprovalListings = () => {
   useEffect(() => {
     const fetchPendingListings = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/approval/getPendingListings');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/approval/getPendingListings`);
         setPendingListings({
           pendingHouses: response.data.pendingHouses.slice(0, 3),
           pendingCars: response.data.pendingCars.slice(0, 3)
@@ -32,7 +32,7 @@ const ApprovalListings = () => {
 
   const handleApprove = async (id, type) => {
     try {
-      await axios.post(`http://localhost:5000/api/approval/approve${type}/${id}`);
+      await axios.post(`${process.env.REACT_APP_API_URL}/api/approval/approve${type}/${id}`);
       setPendingListings(prev => ({
         pendingCars: type === 'Car' ? prev.pendingCars.filter(item => item.id !== id) : prev.pendingCars,
         pendingHouses: type === 'House' ? prev.pendingHouses.filter(item => item.id !== id) : prev.pendingHouses
@@ -45,7 +45,7 @@ const ApprovalListings = () => {
 
   const handleReject = async (id, type) => {
     try {
-      const endpoint = `http://localhost:5000/api/approval/${type}/${id}/reject`;
+      const endpoint = `${process.env.REACT_APP_API_URL}/api/approval/${type}/${id}/reject`;
       console.log('Making rejection request to:', endpoint); // Debug log
       
       const response = await axios.put(endpoint);
@@ -98,7 +98,7 @@ const ApprovalListings = () => {
             {pendingListings.pendingHouses.map(house => (
               <div className="admin-approval-item" key={`house-${house.id}`}>
                 <div className="admin-approval-image-container">
-                <img src={`http://localhost:5000/uploads${house.cover_image}` || '/placeholder-house.jpg'} alt="House" className="admin-approval-image" />
+                <img src={`${process.env.REACT_APP_API_URL}/uploads${house.cover_image}` || '/placeholder-house.jpg'} alt="House" className="admin-approval-image" />
                 <span className="admin-approval-badge admin-approval-badge-house">
                     <FontAwesomeIcon icon={faHome} />
                   </span>
@@ -134,7 +134,7 @@ const ApprovalListings = () => {
             {pendingListings.pendingCars.map(car => (
               <div className="admin-approval-item" key={`car-${car.id}`}>
                 <div className="admin-approval-image-container">
-                <img src={`http://localhost:5000/uploads${car.cover_image}` || '/placeholder-car.jpg'} alt="Car" className="admin-approval-image" />
+                <img src={`${process.env.REACT_APP_API_URL}/uploads${car.cover_image}` || '/placeholder-car.jpg'} alt="Car" className="admin-approval-image" />
                 <span className="admin-approval-badge admin-approval-badge-car">
                     <FontAwesomeIcon icon={faCar} />
                   </span>

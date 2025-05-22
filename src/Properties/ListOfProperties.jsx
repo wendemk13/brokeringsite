@@ -19,7 +19,7 @@
 //   useEffect(() => {
 //     const fetchHouses = async () => {
 //       try {
-//         const response = await axios.get('http://localhost:5000/api/houses');
+//         const response = await axios.get('${process.env.REACT_APP_API_URL}/api/houses');
 //         setProperties(response.data.houses); 
 //       } catch (error) {
 //         console.error('Error fetching houses:', error);
@@ -70,7 +70,7 @@ function ListOfProperties() {
   useEffect(() => {
     const fetchHouses = async () => {
       try {
-        const response = await axios.get('http://localhost:5000/api/house');
+        const response = await axios.get(`${process.env.REACT_APP_API_URL}/api/house`);
         if (response.data.success) {
           setProperties(response.data.data); // Access the 'data' array from the response
         } else {
@@ -102,7 +102,7 @@ function ListOfProperties() {
           <PropertyCard 
             key={property.id}
             {...property}
-            imageUrl={`http://localhost:5000/uploads${property.cover_image}`}
+            imageUrl={`${process.env.REACT_APP_API_URL}/uploads${property.cover_image}`}
           />
         ))}
       </div>

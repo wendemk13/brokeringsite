@@ -12,7 +12,7 @@ import {
 } from '@ant-design/icons';
 import { Link, useNavigate } from 'react-router-dom';
 
-const API_BASE_URL = 'http://localhost:5000/api/admin';
+const API_BASE_URL = `${process.env.REACT_APP_API_URL}/api/admin`;
 
 const ManageUsers = () => {
   const [users, setUsers] = useState([]);
