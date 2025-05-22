@@ -13,7 +13,7 @@ function CarDetailPage() {
   console.log(id)
   useEffect(()=>{const fetchdetail = async () => {
       try {
-        const response = await axios.get(`http://localhost:5000/api/cars/${id}`);
+        const response = await axios.get(`https://brokeringbackend.onrender.com/api/cars/${id}`);
         setdetail(response.data.car); 
       } catch (error) {
         console.error('Error fetching houses:', error);
