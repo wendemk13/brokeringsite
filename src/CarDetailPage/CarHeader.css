@@ -1,0 +1,39 @@
+/* .car-header {
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 1rem;
+    margin-bottom: 1rem;
+}
+
+.car-title {
+    font-size: 2rem;
+    margin: 0;
+}
+
+.car-details {
+    color: #555;
+    font-size: 1.1rem;
+}
+
+.car-status {
+    padding: 0.3rem 0.6rem;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    text-transform: capitalize;
+    margin-top: 0.5rem;
+}
+
+.car-status.available {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.car-status.unavailable {
+    background-color: #f8d7da;
+    color: #721c24;
+}
+
+.car-price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: #333;
+} */

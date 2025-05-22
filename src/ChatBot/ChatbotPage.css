@@ -1,0 +1,227 @@
+.chatbot-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    overflow: hidden;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.chatbot-header {
+    background-color: #4a6fa5;
+    color: white;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-header h2 {
+    margin: 0;
+    font-size: 1.5rem;
+}
+
+.connection-status {
+    font-size: 0.8rem;
+    padding: 3px 8px;
+    border-radius: 10px;
+}
+
+.connection-status.connected {
+    background-color: #4caf50;
+}
+
+.connection-status.disconnected {
+    background-color: #f44336;
+}
+
+.connection-status.connecting {
+    background-color: #ff9800;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    background-color: #f9f9f9;
+}
+
+.empty-state {
+    text-align: center;
+    color: #666;
+    margin-top: 40px;
+}
+
+.quick-replies {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.quick-replies button {
+    padding: 8px 12px;
+    background-color: #e0e0e0;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.quick-replies button:hover {
+    background-color: #d0d0d0;
+}
+
+.message {
+    margin-bottom: 15px;
+    display: flex;
+}
+
+.message.user {
+    justify-content: flex-end;
+}
+
+.message.bot {
+    justify-content: flex-start;
+}
+
+.message-content {
+    max-width: 70%;
+    padding: 10px 15px;
+    border-radius: 18px;
+    position: relative;
+}
+
+.message.user .message-content {
+    background-color: #4a6fa5;
+    color: white;
+    border-bottom-right-radius: 4px;
+}
+
+.message.bot .message-content {
+    background-color: #e0e0e0;
+    color: #333;
+    border-bottom-left-radius: 4px;
+}
+
+.message-time {
+    display: block;
+    font-size: 0.7rem;
+    margin-top: 5px;
+    opacity: 0.7;
+}
+
+.message.user .message-time {
+    text-align: right;
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.message.bot .message-time {
+    text-align: left;
+    color: rgba(0, 0, 0, 0.6);
+}
+
+.typing-indicator {
+    display: flex;
+    padding: 10px 15px;
+}
+
+.typing-indicator span {
+    height: 8px;
+    width: 8px;
+    background: #666;
+    border-radius: 50%;
+    display: inline-block;
+    margin: 0 2px;
+    animation: bounce 1s infinite ease-in-out;
+}
+
+.typing-indicator span:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.typing-indicator span:nth-child(3) {
+    animation-delay: 0.4s;
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+.chatbot-input-area {
+    display: flex;
+    padding: 15px;
+    background-color: white;
+    border-top: 1px solid #e0e0e0;
+}
+
+.chatbot-input-area input {
+    flex: 1;
+    padding: 12px 15px;
+    border: 1px solid #e0e0e0;
+    border-radius: 25px;
+    outline: none;
+    font-size: 1rem;
+}
+
+.chatbot-input-area input:focus {
+    border-color: #4a6fa5;
+}
+
+.chatbot-input-area button {
+    margin-left: 10px;
+    padding: 0 20px;
+    background-color: #4a6fa5;
+    color: white;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.2s;
+}
+
+.chatbot-input-area button:hover {
+    background-color: #3a5a8f;
+}
+
+.chatbot-input-area button:disabled {
+    background-color: #cccccc;
+    cursor: not-allowed; }
+
+
+        /* Add to ChatbotPage.css */
+        .model-loading {
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
+        }
+    
+        .connection-error {
+            color: #d32f2f;
+            margin-top: 10px;
+        }
+    
+        .chatbot-header .connection-status.connected.model-loading {
+            color: #ff9800;
+        }
+    
+        /* Enhance typing indicator */
+        .typing-indicator span {
+            background-color: #4a6fa5;
+        }
+    
+        /* Disabled input state */
+        .chatbot-input-area input:disabled {
+            background-color: #f5f5f5;
+            cursor: not-allowed; }

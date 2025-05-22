@@ -1,0 +1,40 @@
+/* FeaturedHouses.css */
+.property-image-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px 8px 0 0;
+  }
+  
+  .property-badges {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    display: flex;
+    gap: 5px;
+  }
+  
+  .status-badge, .type-badge {
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+  }
+  
+  .status-badge.available { background-color: #4CAF50; }
+  .status-badge.sold { background-color: #f44336; }
+  
+  .type-badge.sell { background-color: #2196F3; }
+  .type-badge.rent { background-color: #FF9800; }
+  
+  .property-title {
+    margin: 10px 0 5px;
+    font-size: 1.2rem;
+  }
+  
+  .property-price {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: var(--primary);
+    margin-bottom: 8px;
+  }

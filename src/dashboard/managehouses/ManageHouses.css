@@ -1,0 +1,158 @@
+/* .manageHouse-container {
+    padding: 20px;
+    background-color: #f8f9fa;
+}
+
+.manageHouse-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.manageHouse-searchBar {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.manageHouse-input {
+    flex: 1;
+    padding: 8px 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.manageHouse-searchButton {
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.manageHouse-searchButton:hover {
+    background-color: #0056b3;
+}
+
+.manageHouse-table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+.manageHouse-table th,
+.manageHouse-table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+}
+
+.manageHouse-img {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    border-radius: 6px;
+}
+
+.manageHouse-editButton,
+.manageHouse-deleteButton {
+    margin-right: 8px;
+    padding: 6px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.manageHouse-editButton {
+    background-color: #28a745;
+    color: white;
+}
+
+.manageHouse-deleteButton {
+    background-color: #dc3545;
+    color: white;
+} */
+
+
+/* Main container */
+.manageHouse-container {
+    padding: 20px;
+    background-color: #f5f5f5;
+    min-height: 100vh;
+}
+
+/* Header section */
+.manageHouse-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
+}
+
+.manageHouse-title {
+    margin: 0 !important;
+    color: #333;
+}
+
+.manageHouse-addButton {
+    margin-left: 10px;
+}
+
+/* Stats cards */
+.manageHouse-stats {
+    margin-bottom: 24px;
+}
+
+.manageHouse-statCard {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s;
+}
+
+.manageHouse-statCard:hover {
+    transform: translateY(-5px);
+}
+
+/* Table card */
+.manageHouse-tableCard {
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Search input */
+.manageHouse-search {
+    width: 250px;
+}
+
+/* Refresh button */
+.manageHouse-refreshButton {
+    margin-left: 10px;
+}
+
+/* Table styling */
+.manageHouse-table {
+    margin-top: 16px;
+}
+
+.manageHouse-table .ant-table-thead>tr>th {
+    background-color: #f0f2f5;
+    font-weight: 600;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .manageHouse-header {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .manageHouse-addButton {
+        margin-top: 10px;
+        margin-left: 0;
+    }
+
+    .manageHouse-search {
+        width: 100%;
+        margin-bottom: 10px;
+    } }
